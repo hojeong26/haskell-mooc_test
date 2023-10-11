@@ -141,4 +141,6 @@ power n k = n * power n (k-1)
 --   ilog3 7 ==> 2
 
 ilog3 :: Integer -> Integer
-ilog3 = todo
+ilog3 n = if n < 3
+          then 1
+          else 1 + ilog3 (div n 3)
