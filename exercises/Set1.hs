@@ -114,14 +114,15 @@ isZero n = False
 
 sumTo :: Integer -> Integer
 sumTo 0 = 0
-sumTo n = n + (sumTo (n-1))
+sumTo n = n + sumTo (n-1)
 
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
 -- Use recursion.
 
 power :: Integer -> Integer -> Integer
-power = todo
+power n 0 = 1
+power n k = n * power n (k-1)
 
 ------------------------------------------------------------------------------
 -- Ex 11: ilog3 n should be the number of times you can divide given
