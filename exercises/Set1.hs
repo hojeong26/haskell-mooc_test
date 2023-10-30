@@ -68,6 +68,7 @@ distance x1 y1 x2 y2 = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1))
 eeny :: Integer -> String
 eeny x = if mod x 2 == 0 then "eeny"
                          else "meeny"
+-- even 써도 됨
 
 ------------------------------------------------------------------------------
 -- Ex 6: here's the function checkPassword from the course material.
@@ -94,6 +95,7 @@ postagePrice gram = if gram > 500
                          then 300 + gram
                          else 6000
                     else 250 
+-- guard 사용가능
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
@@ -141,4 +143,12 @@ power n k = n * power n (k-1)
 --   ilog3 7 ==> 2
 
 ilog3 :: Integer -> Integer
-ilog3 = todo
+ilog3 n = if n < 3
+          then 1
+          else 1 + ilog3 (div n 3)
+{-
+ilog3 :: Integer -> Integer
+ilog3 n
+     | n <= 0 = 0
+     | otherwise = 1 + ilog3(n `div` 3)
+-}
