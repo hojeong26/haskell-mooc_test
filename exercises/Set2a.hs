@@ -81,7 +81,11 @@ isPalindrome :: String -> Bool
 isPalindrome str = if (take (length str `div` 2) str == take(length str `div` 2) (reverse str))
                    then True
                    else False
-
+{-isPalindrome str = if str == reverse str
+                   then True
+                   else False
+더 가능한 코드
+-}
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function palindromify that chops a character
 -- off the front _and_ back of a string until the result is a
@@ -94,7 +98,9 @@ isPalindrome str = if (take (length str `div` 2) str == take(length str `div` 2)
 --   palindromify "abracacabra" ==> "acaca"
 
 palindromify :: String -> String
-palindromify s = todo
+palindromify s = if(s == reverse s)
+                 then s
+                 else palindromify (init (tail s))
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement safe integer division, that is, a function that
