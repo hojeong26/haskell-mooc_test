@@ -117,10 +117,10 @@ palindromify s = if(s == reverse s)
 --   safeDiv 4 0  ==> Nothing
 
 safeDiv :: Integer -> Integer -> Maybe Integer
+safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing 
 {- safeDiv x 0 = Nothing
 sefeDiv x y = Just (x `div` y)
 어떤 이유에서인지 오류 발생-}
-safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing 
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function greet that greets a person given a first
@@ -149,7 +149,10 @@ greet first (Just last) = "Hello, " ++ first ++ " " ++ last ++ "!"
 --   safeIndex ["a","b","c"] (-1)  ==> Nothing
 
 safeIndex :: [a] -> Int -> Maybe a
-safeIndex xs i = todo
+safeIndex xs i
+    |i < 0 = Nothing
+    |(length xs)-1 < i = Nothing 
+    |otherwise = Just (xs !! i)
 
 ------------------------------------------------------------------------------
 -- Ex 10: another variant of safe division. This time you should use
