@@ -117,8 +117,9 @@ palindromify s = if(s == reverse s)
 --   safeDiv 4 0  ==> Nothing
 
 safeDiv :: Integer -> Integer -> Maybe Integer
--- safeDiv x 0 = Nothing
--- sefeDiv x y = Just (x `div` y)
+{- safeDiv x 0 = Nothing
+sefeDiv x y = Just (x `div` y)
+어떤 이유에서인지 오류 발생-}
 safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing 
 
 ------------------------------------------------------------------------------
@@ -131,7 +132,8 @@ safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing
 --   greet "John" (Just "Smith")  ==> "Hello, John Smith!"
 
 greet :: String -> Maybe String -> String
-greet first last = todo
+greet first Nothing = "Hello, " ++ first ++"!"
+greet first (Just last) = "Hello, " ++ first ++ " " ++ last ++ "!"
 
 ------------------------------------------------------------------------------
 -- Ex 9: safe list indexing. Define a function safeIndex so that
