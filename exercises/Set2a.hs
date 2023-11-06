@@ -101,7 +101,11 @@ palindromify :: String -> String
 palindromify s = if(s == reverse s)
                  then s
                  else palindromify (init (tail s))
-
+{-palindromify s
+    |s == reverse s = s
+    |otherwise = palindromify (init (tail s))
+더 가능한 코드
+-}
 ------------------------------------------------------------------------------
 -- Ex 7: implement safe integer division, that is, a function that
 -- returns a Just result normally, but Nothing if the divisor is zero.
@@ -113,7 +117,9 @@ palindromify s = if(s == reverse s)
 --   safeDiv 4 0  ==> Nothing
 
 safeDiv :: Integer -> Integer -> Maybe Integer
-safeDiv x y = todo
+-- safeDiv x 0 = Nothing
+-- sefeDiv x y = Just (x `div` y)
+safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing 
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function greet that greets a person given a first
