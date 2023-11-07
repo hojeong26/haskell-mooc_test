@@ -15,8 +15,21 @@ import Data.List
 --
 -- Hint! pattern matching is your friend.
 
+{-binomial :: Integer -> Integer -> Integer
+binomial 0 0 = 1
+binomial 0 k = 0
+binomial n 0 = 1
+binomial n k = (binomial' n 1) `div` ((binomial' k 1) * (binomial' (n-k) 1))
+
+binomial' :: Integer -> Integer -> Integer
+binomial' 0 result = result
+binomial' n result = binomial' (n-1) (n * result)-}
+
 binomial :: Integer -> Integer -> Integer
-binomial = todo
+binomial n 0 = 1
+binomial 0 k = 0
+binomial n k = binomial (n - 1) k + binomial (n - 1) (k - 1)
+
 
 ------------------------------------------------------------------------------
 -- Ex 2: implement the odd factorial function. Odd factorial is like
