@@ -146,9 +146,12 @@ ilog3 :: Integer -> Integer
 ilog3 n = if n < 3
           then 1
           else 1 + ilog3 (div n 3)
+<<<<<<< HEAD
 {-
 ilog3 :: Integer -> Integer
 ilog3 n
      | n <= 0 = 0
      | otherwise = 1 + ilog3(n `div` 3)
 -}
+=======
+>>>>>>> eac960c688206b10730455c2717aa448bc9cfdc2
