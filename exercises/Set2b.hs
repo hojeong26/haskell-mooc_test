@@ -116,7 +116,9 @@ leftpad str x = case (length str) >= x of True -> str
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
-countdown = todo
+countdown x = countdown' x "Ready! "
+
+countdown' x str = countdown' x-1 (str ++ (show x ++ "... "))
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
