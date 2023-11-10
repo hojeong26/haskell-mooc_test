@@ -154,7 +154,10 @@ findDivisor n test
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
-isPrime = todo
+isPrime x
+    | x == 0 || x == 1 = False
+    |(smallestDivisor x) == x = True
+    |otherwise = False
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
