@@ -118,7 +118,10 @@ leftpad str x = case (length str) >= x of True -> str
 countdown :: Integer -> String
 countdown x = countdown' x "Ready! "
 
-countdown' x str = countdown' x-1 (str ++ (show x ++ "... "))
+countdown' :: Integer -> String -> String
+countdown' x str
+    |x < 1 = str ++ "Liftoff!"
+    |otherwise = countdown' (x-1) (str ++ (show x) ++ "... ")
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
