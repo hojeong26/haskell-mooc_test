@@ -139,7 +139,13 @@ countdown' x str
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
+smallestDivisor n = findDivisor n 2
+
+findDivisor :: Integer -> Integer -> Integer
+findDivisor n test
+  | test * test > n = n
+  | n `mod` test == 0 = test
+  | otherwise = findDivisor n (test + 1)
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
