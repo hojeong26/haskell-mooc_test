@@ -16,14 +16,14 @@ import Data.List
 -- Hint! pattern matching is your friend.
 
 {-binomial :: Integer -> Integer -> Integer
-binomial 0 0 = 1
-binomial 0 k = 0
 binomial n 0 = 1
+binomial 0 k = 0
 binomial n k = (binomial' n 1) `div` ((binomial' k 1) * (binomial' (n-k) 1))
 
 binomial' :: Integer -> Integer -> Integer
 binomial' 0 result = result
-binomial' n result = binomial' (n-1) (n * result)-}
+binomial' n result = binomial' (n-1) (n * result)
+도움함수 사용한 함수 작성-}
 
 binomial :: Integer -> Integer -> Integer
 binomial n 0 = 1
@@ -40,7 +40,14 @@ binomial n k = binomial (n - 1) k + binomial (n - 1) (k - 1)
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial = todo
+oddFactorial x = todo
+--     |(x `mod` 2) == 0 = [(x-1),(x-3)..1]
+--     |otherwise = [(x), (x-2)..1]
+
+-- mul xs = 1 * xs
+
+-- oddFactorial x = case x `mod` 2 of 0 -> (x-1) * oddFactorial(x-1)
+--                                    1 -> x * oddFactorial(x-2)
 
 ------------------------------------------------------------------------------
 -- Ex 3: implement the Euclidean Algorithm for finding the greatest
@@ -72,7 +79,11 @@ oddFactorial = todo
 -- * https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 myGcd :: Integer -> Integer -> Integer
-myGcd = todo
+myGcd 0 y = y
+myGcd x 0 = x
+myGcd x y
+    | x > y = myGcd (x-y) y
+    | otherwise = myGcd x (y-x)
 
 ------------------------------------------------------------------------------
 -- Ex 4: Implement the function leftpad which adds space characters

@@ -118,9 +118,9 @@ palindromify s = if(s == reverse s)
 
 safeDiv :: Integer -> Integer -> Maybe Integer
 safeDiv x y = if y /= 0 then Just (x `div` y) else Nothing 
-{- safeDiv x 0 = Nothing
-sefeDiv x y = Just (x `div` y)
-어떤 이유에서인지 오류 발생-}
+{-safeDiv x 0 = Nothing
+safeDiv x y = Just (x `div` y)
+어떤 이유에서인지 오류 발생 -> 단순 오타ㅜㅜ-}
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function greet that greets a person given a first
