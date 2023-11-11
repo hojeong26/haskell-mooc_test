@@ -40,14 +40,10 @@ binomial n k = binomial (n - 1) k + binomial (n - 1) (k - 1)
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial x = todo
---     |(x `mod` 2) == 0 = [(x-1),(x-3)..1]
---     |otherwise = [(x), (x-2)..1]
-
--- mul xs = 1 * xs
-
--- oddFactorial x = case x `mod` 2 of 0 -> (x-1) * oddFactorial(x-1)
---                                    1 -> x * oddFactorial(x-2)
+oddFactorial x 
+    | x <= 1  = 1
+    | even x = (x-1) * oddFactorial (x-3) 
+    | otherwise = x * oddFactorial (x-2)
 
 ------------------------------------------------------------------------------
 -- Ex 3: implement the Euclidean Algorithm for finding the greatest
@@ -172,4 +168,4 @@ isPrime x
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost = todo
+biggestPrimeAtMost n = todo
