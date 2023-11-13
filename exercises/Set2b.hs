@@ -135,13 +135,13 @@ countdown' x str
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor n = findDivisor n 2
+smallestDivisor n = divisor n 2
 
-findDivisor :: Integer -> Integer -> Integer
-findDivisor n test
+divisor :: Integer -> Integer -> Integer
+divisor n test
   | test * test > n = n
   | n `mod` test == 0 = test
-  | otherwise = findDivisor n (test + 1)
+  | otherwise = divisor n (test + 1)
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
@@ -168,4 +168,5 @@ isPrime x
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost n = todo
+biggestPrimeAtMost n = case isPrime n of True -> n
+                                         False -> biggestPrimeAtMost(n-1)
